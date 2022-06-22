@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kakao_flutter_sdk_common/kakao_flutter_sdk_common.dart';
+import 'package:mbtmi/env.dart';
+import 'package:mbtmi/screens/login/components/LoginButton.dart';
 
 void main() {
+  KakaoSdk.init(nativeAppKey: kakaoNativeKey);
   runApp(const MyApp());
 }
 
@@ -33,6 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: Center());
+        body: Center(child: LoginButton()));
   }
 }
