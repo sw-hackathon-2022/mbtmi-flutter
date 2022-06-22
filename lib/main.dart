@@ -3,6 +3,7 @@ import 'package:kakao_flutter_sdk_common/kakao_flutter_sdk_common.dart';
 import 'package:mbtmi/env.dart';
 import 'package:mbtmi/screens/login/components/LoginButton.dart';
 import 'package:mbtmi/screens/home/home_screen.dart';
+import 'package:mbtmi/screens/splash/splash_screen.dart';
 
 void main() {
   KakaoSdk.init(nativeAppKey: kakaoNativeKey);
@@ -14,10 +15,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "GmarketSans"),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return FutureBuilder(
+      future: Future.delayed(const Duration(milliseconds: 2000)),
+      builder: (context, AsyncSnapshot snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const MaterialApp(home: SplashScreen());
+        } else {
+          return MaterialApp(
+            title: 'Flutter',
+            theme: ThemeData(
+                primarySwatch: Colors.blue, fontFamily: "GmarketSans"),
+            home: HomeScreen(),
+          );
+        }
+      },
     );
   }
 }
