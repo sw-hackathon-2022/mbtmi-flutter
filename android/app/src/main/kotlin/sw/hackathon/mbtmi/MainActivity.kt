@@ -1,4 +1,4 @@
-package com.example.mbtmi
+package sw.hackathon.mbtmi
 
 import io.flutter.embedding.android.FlutterActivity
 
