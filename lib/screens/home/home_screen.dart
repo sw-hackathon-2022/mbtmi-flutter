@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'analytic/analytic_screen.dart';
 import 'constant_screen.dart';
 import 'contents/contents_screen.dart';
-import 'controller/homeScreen_controller.dart';
+
 import 'feed/feed_screen.dart';
 
 class HomeScreen extends StatefulWidget {
