@@ -1,0 +1,53 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+
+class RadialBar extends StatefulWidget {
+  const RadialBar({Key? key}) : super(key: key);
+
+  @override
+  State<RadialBar> createState() => _RadialBarState();
+}
+
+class _RadialBarState extends State<RadialBar> {
+  late List<_ChartData> chartData;
+  void initState() {
+    chartData = [
+      _ChartData('David', 25, Color.fromRGBO(9, 0, 136, 1)),
+      _ChartData('Steve', 38, Color.fromRGBO(147, 0, 119, 1)),
+      _ChartData('Jack', 34, Color.fromRGBO(228, 0, 124, 1)),
+      _ChartData('Others', 52, Color.fromRGBO(255, 189, 57, 1))
+    ];
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SfCircularChart(
+      legend: Legend(isVisible: true),
+      series: <CircularSeries>[
+        RadialBarSeries<_ChartData, String>(
+          maximumValue:
+              (List.generate(chartData.length, (index) => chartData[index].y)
+                      .reduce(max) *
+                  1.1),
+          selectionBehavior: SelectionBehavior(enable: true),
+          dataSource: chartData,
+          pointColorMapper: (_ChartData data, _) => data.color,
+          xValueMapper: (_ChartData data, _) => data.x,
+          yValueMapper: (_ChartData data, _) => data.y,
+          dataLabelSettings: DataLabelSettings(isVisible: true),
+        ),
+      ],
+    );
+  }
+}
+
+class _ChartData {
+  _ChartData(this.x, this.y, this.color);
+
+  final String x;
+  final int y;
+  final Color color;
+}
