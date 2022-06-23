@@ -4,6 +4,7 @@ import 'package:mbtmi/constants.dart';
 import 'package:mbtmi/env.dart';
 import 'package:mbtmi/screens/login/components/LoginButton.dart';
 import 'package:mbtmi/screens/home/home_screen.dart';
+import 'package:mbtmi/screens/login/login_screen.dart';
 import 'package:mbtmi/screens/splash/splash_screen.dart';
 
 void main() {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
                 primarySwatch: _createMaterialColor(kYellowColor),
                 fontFamily: "GmarketSans"),
-            home: HomeScreen(),
+            home: LoginScreen(),
           );
         }
       },
