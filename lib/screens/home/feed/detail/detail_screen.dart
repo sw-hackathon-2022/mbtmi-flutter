@@ -126,92 +126,140 @@ class DetailScreen extends StatelessWidget {
                                   GetBuilder<HeartController>(
                                       builder: (controller) {
                                     if (controller.pageIdx.value == 1) {
-                                      return IconButton(
-                                        icon: SvgPicture.asset(
-                                            'assets/svg/detail_heart.svg',
-                                            width: Get.width * 0.06,
-                                            color: Colors.red),
-                                        onPressed: () async {
-                                          controller.changeColor(1);
-                                          print("1");
-                                        },
+                                      return Row(
+                                        children: [
+                                          IconButton(
+                                            icon: SvgPicture.asset(
+                                                'assets/svg/detail_heart.svg',
+                                                width: Get.width * 0.06,
+                                                color: Colors.red),
+                                            onPressed: () async {
+                                              controller.changeColor(1);
+                                              print("1");
+                                            },
+                                          ),
+                                          const Text(
+                                            '공감해요 : ',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          const Text(
+                                            '1,235',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                        ],
                                       );
                                     } else {
-                                      return IconButton(
-                                        icon: SvgPicture.asset(
-                                            'assets/svg/detail_heart_off.svg',
-                                            width: Get.width * 0.06,
-                                            color: Colors.black),
-                                        onPressed: () async {
-                                          controller.changeColor(1);
-                                        },
+                                      return Row(
+                                        children: [
+                                          IconButton(
+                                            icon: SvgPicture.asset(
+                                                'assets/svg/detail_heart_off.svg',
+                                                width: Get.width * 0.06,
+                                                color: Colors.black),
+                                            onPressed: () async {
+                                              controller.changeColor(1);
+                                            },
+                                          ),
+                                          const Text(
+                                            '공감해요 : ',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          const Text(
+                                            '1,234',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                        ],
                                       );
                                     }
                                   }),
-                                  const Text(
-                                    '공감해요 : ',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'GmarketSans',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10),
-                                  ),
-                                  const Text(
-                                    '1,234',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'GmarketSans',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10),
-                                  ),
                                 ],
                               ),
                             ),
-                            const SizedBox(width: 20),
+                            const SizedBox(width: 10),
                             Container(
                               child: Row(
                                 children: [
                                   GetBuilder<QuestController>(
                                       builder: (controller) {
                                     if (controller.pageIdx.value == 1) {
-                                      return IconButton(
-                                        icon: SvgPicture.asset(
-                                            'assets/svg/detail_question.svg',
-                                            width: Get.width * 0.06,
-                                            color: kPurpleColor),
-                                        onPressed: () async {
-                                          controller.changeColor(1);
-                                          print("1");
-                                        },
+                                      return Row(
+                                        children: [
+                                          IconButton(
+                                            icon: SvgPicture.asset(
+                                                'assets/svg/detail_question.svg',
+                                                width: Get.width * 0.06,
+                                                color: kPurpleColor),
+                                            onPressed: () async {
+                                              controller.changeColor(1);
+                                              print("1");
+                                            },
+                                          ),
+                                          const Text(
+                                            '공감해요 : ',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          const Text(
+                                            '999',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                        ],
                                       );
                                     } else {
-                                      return IconButton(
-                                        icon: SvgPicture.asset(
-                                            'assets/svg/detail_question_off.svg',
-                                            width: Get.width * 0.06,
-                                            color: Colors.black),
-                                        onPressed: () async {
-                                          controller.changeColor(1);
-                                        },
+                                      return Row(
+                                        children: [
+                                          IconButton(
+                                            icon: SvgPicture.asset(
+                                                'assets/svg/detail_question_off.svg',
+                                                width: Get.width * 0.06,
+                                                color: Colors.black),
+                                            onPressed: () async {
+                                              controller.changeColor(1);
+                                            },
+                                          ),
+                                          const Text(
+                                            '공감해요 : ',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          const Text(
+                                            '998',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                        ],
                                       );
                                     }
                                   }),
-                                  const Text(
-                                    '이해가 안돼요 : ',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'GmarketSans',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10),
-                                  ),
-                                  const Text(
-                                    '1,234',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'GmarketSans',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10),
-                                  ),
                                 ],
                               ),
                             )
