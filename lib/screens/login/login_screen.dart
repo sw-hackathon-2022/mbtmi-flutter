@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mbtmi/screens/home/home_screen.dart';
 import 'package:mbtmi/screens/login/components/LoginButton.dart';
+import 'package:mbtmi/screens/profile/profile.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -16,8 +17,8 @@ class LoginScreen extends StatelessWidget {
         const SizedBox(height: 90.0),
         TextButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomeScreen()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()));
           },
           child: Container(
               width: 250, child: Image.asset("assets/images/login_kakao.png")),
