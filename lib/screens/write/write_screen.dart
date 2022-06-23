@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mbtmi/constants.dart';
 
@@ -97,18 +96,19 @@ class _WriteScreenState extends State<WriteScreen> {
               image: AssetImage("assets/images/write_header.png"),
             ),
             Container(
+              height: 520,
+              width: 400,
+              decoration: BoxDecoration(
+                border: new Border.all(
+                  color: kYellowColor.withOpacity(0.3),
+                  width: 1.0,
+                ),
+              ),
               padding: EdgeInsets.all(10.0),
               margin: EdgeInsets.all(15.0),
               child: Column(children: [
                 Container(
-                  width: 400,
-                  decoration: BoxDecoration(
-                    border: new Border.all(
-                      color: kYellowColor.withOpacity(0.3),
-                      width: 1.0,
-                    ),
-                  ),
-                  height: 50,
+                  height: 40,
                   child: TextField(
                       style: TextStyle(fontSize: 16),
                       keyboardType: TextInputType.multiline,
@@ -123,14 +123,13 @@ class _WriteScreenState extends State<WriteScreen> {
                           ))),
                 ),
                 Container(
+                  height: 1.0,
+                  width: 330.0,
+                  color: kYellowColor.withOpacity(0.3),
+                ),
+                Container(
                   width: 400,
-                  decoration: BoxDecoration(
-                    border: new Border.all(
-                      color: kYellowColor.withOpacity(0.3),
-                      width: 1.0,
-                    ),
-                  ),
-                  height: 500,
+                  height: 450,
                   child: TextField(
                       style:
                           TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
