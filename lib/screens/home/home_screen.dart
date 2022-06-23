@@ -62,7 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = PersistentTabController(initialIndex: 1);
   }
 
   @override

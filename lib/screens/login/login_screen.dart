@@ -18,10 +18,8 @@ class LoginScreen extends StatelessWidget {
         const SizedBox(height: 90.0),
         TextButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomeScreen()));
-            showMbtmiDialog(
-                context, "환영합니다!", "엠비티엠아이에 오신 것을 환영합니다!\n나의 TMI를 맘껏 방출해보세요~");
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()));
           },
           child: Container(
               width: 250, child: Image.asset("assets/images/login_kakao.png")),
