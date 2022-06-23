@@ -9,6 +9,7 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'analytic/analytic_screen.dart';
 import 'constant_screen.dart';
 import 'contents/contents_screen.dart';
+import 'feed/detail/detail_screen.dart';
 import 'feed/feed_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> _buildScreens() {
     return [
       const ContentsScreen(),
-      const FeedScreen(),
+      //const FeedScreen(),
+      const DetailScreen(),
       const AnalyticScreen(),
     ];
   }
