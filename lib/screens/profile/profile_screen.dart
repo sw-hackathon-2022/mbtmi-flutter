@@ -47,7 +47,7 @@ class _ProfileScreenSate extends State<ProfileScreen> {
         const SizedBox(height: 80),
         TextButton(
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => HomeScreen()));
           },
           child: Container(
