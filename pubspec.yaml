@@ -42,7 +42,6 @@ flutter:
   assets:
     - assets/images/
     - assets/images/profile/
-    - assets/svg/
 
   fonts:
     - family: GmarketSans
