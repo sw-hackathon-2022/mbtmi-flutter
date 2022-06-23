@@ -104,17 +104,18 @@ class _WriteScreenState extends State<WriteScreen> {
                   width: 1.0,
                 ),
               ),
-              padding: EdgeInsets.all(10.0),
-              margin: EdgeInsets.all(15.0),
+              //padding: EdgeInsets.all(10.0),
+              margin: EdgeInsets.only(top: 24, left: 30, right: 30),
               child: Column(children: [
                 Container(
-                  height: 40,
+                  height: 50,
                   child: TextField(
                       style: TextStyle(fontSize: 16),
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
                       decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(16.0),
+                          contentPadding: EdgeInsets.only(
+                              top: 17.0, left: 17, right: 17, bottom: 15),
                           border: InputBorder.none,
                           hintText: '제목을 입력하세요',
                           hintStyle: TextStyle(
@@ -124,8 +125,9 @@ class _WriteScreenState extends State<WriteScreen> {
                 ),
                 Container(
                   height: 1.0,
-                  width: 330.0,
+                  width: 280.0,
                   color: kYellowColor.withOpacity(0.3),
+                  //margin: EdgeInsets.all(3),
                 ),
                 Container(
                   width: 400,
@@ -136,10 +138,10 @@ class _WriteScreenState extends State<WriteScreen> {
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
                       decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(16.0),
+                          contentPadding: EdgeInsets.all(17.0),
                           border: InputBorder.none,
                           hintText:
-                              '내용을 입력하세요\n\n\n\n *커뮤니티 이용규칙\n\n *욕설, 비속어 사용 시 글 작성이 제한될 수 있습니다.',
+                              '내용을 입력하세요\n\n\n\n*커뮤니티 이용규칙\n\n*욕설, 비속어 사용 시 글 작성이 제한될 수 있습니다.',
                           hintStyle: TextStyle(
                               fontFamily: "GmarketSans",
                               fontSize: 14,
