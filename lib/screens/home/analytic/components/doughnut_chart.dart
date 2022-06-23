@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mbtmi/model/mbti_color.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DoughnutChart extends StatefulWidget {
@@ -12,10 +13,10 @@ class _DoughnutChartState extends State<DoughnutChart> {
   late List<_ChartData> chartData;
   void initState() {
     chartData = [
-      _ChartData('David', 25, Color.fromRGBO(9, 0, 136, 1)),
-      _ChartData('Steve', 38, Color.fromRGBO(147, 0, 119, 1)),
-      _ChartData('Jack', 34, Color.fromRGBO(228, 0, 124, 1)),
-      _ChartData('Others', 52, Color.fromRGBO(255, 189, 57, 1))
+      _ChartData('ESTJ', 25),
+      _ChartData('ISTJ', 38),
+      _ChartData('ENFP', 34),
+      _ChartData('ESFP', 52)
     ];
     super.initState();
   }
@@ -28,7 +29,7 @@ class _DoughnutChartState extends State<DoughnutChart> {
         DoughnutSeries<_ChartData, String>(
           selectionBehavior: SelectionBehavior(enable: true),
           dataSource: chartData,
-          pointColorMapper: (_ChartData data, _) => data.color,
+          pointColorMapper: (_ChartData data, _) => mbtiColor[data.x],
           xValueMapper: (_ChartData data, _) => data.x,
           yValueMapper: (_ChartData data, _) => data.y,
           dataLabelSettings: DataLabelSettings(isVisible: true),
@@ -39,9 +40,8 @@ class _DoughnutChartState extends State<DoughnutChart> {
 }
 
 class _ChartData {
-  _ChartData(this.x, this.y, this.color);
+  _ChartData(this.x, this.y);
 
   final String x;
   final int y;
-  final Color color;
 }
