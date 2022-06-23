@@ -29,6 +29,7 @@ dependencies:
   get: ^4.6.5
   carousel_slider: ^4.1.1
   syncfusion_flutter_charts: ^20.1.61
+  dotted_line: ^3.1.0
 
 dev_dependencies:
   flutter_test:

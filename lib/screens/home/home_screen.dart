@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:mbtmi/constants.dart';
+import 'package:dotted_line/dotted_line.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'analytic/analytic_screen.dart';
@@ -23,31 +27,31 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> _buildScreens() {
     return [
-      const AnalyticScreen(),
-      const FeedScreen(),
       const ContentsScreen(),
+      const FeedScreen(),
+      const AnalyticScreen(),
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
+        icon: const Icon(CupertinoIcons.square_grid_2x2),
+        title: (" "),
+        activeColorPrimary: kPurpleColor,
+        inactiveColorPrimary: CupertinoColors.black,
+      ),
+      PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.home),
-        title: ("Analytic"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        title: (" "),
+        activeColorPrimary: kYellowColor,
+        inactiveColorPrimary: CupertinoColors.black,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.settings),
-        title: ("Feed"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.add),
-        title: ("Contents"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        icon: const Icon(CupertinoIcons.chart_pie),
+        title: (" "),
+        activeColorPrimary: kGreenColor,
+        inactiveColorPrimary: CupertinoColors.black,
       ),
     ];
   }
@@ -64,6 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
       context,
       controller: _controller,
       screens: _buildScreens(),
+
       items: _navBarsItems(),
       confineInSafeArea: true,
       backgroundColor: Colors.white, // Default is Colors.white.
@@ -74,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
       hideNavigationBarWhenKeyboardShows:
           true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
       decoration: NavBarDecoration(
+        border :
         borderRadius: BorderRadius.circular(10.0),
         colorBehindNavBar: Colors.white,
       ),
