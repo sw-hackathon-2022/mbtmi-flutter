@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:mbtmi/screens/dialog/MbtmiDialog.dart';
 import 'package:mbtmi/screens/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,12 +27,15 @@ const List<String> _mbtis = [
 ];
 
 class ProfileScreen extends StatefulWidget {
+  ProfileScreen({Key? key, required this.token}) : super(key: key);
+  final String token;
   @override
   State<ProfileScreen> createState() => _ProfileScreenSate();
 }
 
 class _ProfileScreenSate extends State<ProfileScreen> {
   int _selected = 0;
+  String text = " ";
 
   @override
   Widget build(BuildContext context) {
@@ -127,12 +132,25 @@ class _ProfileScreenSate extends State<ProfileScreen> {
                   ))), // 한 줄 소개
               const SizedBox(height: 80),
               TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              HomeScreen(mbti: _selectedMbti)));
+                onPressed: () async {
+                  User user = await UserApi.instance.me();
+
+                  Dio dio = Dio();
+                  dio.post("http://49.50.166.103:80/users/profile/",
+                      queryParameters: <String, dynamic>{
+                        "mbti": _selectedMbti,
+                        "about": "string",
+                      }).then(
+                    (response) {
+                      print(response);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  HomeScreen(mbti: _selectedMbti)));
+                    },
+                  ).catchError((error) => print(error));
+
                   //showMbtmiDialog(context, "환영합니다!",
                   //"엠비티엠아이에 오신 것을 환영합니다!\n자신의 TMI를 맘껏 방출해보세요!");
                 },
