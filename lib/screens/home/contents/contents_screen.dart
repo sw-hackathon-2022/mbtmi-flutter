@@ -37,7 +37,7 @@ class ContentsScreen extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Text('오늘의',
+                Text('오늘의 ',
                     style: TextStyle(
                         color: kPurpleColor,
                         fontFamily: 'GmarketSans',
@@ -58,11 +58,11 @@ class ContentsScreen extends StatelessWidget {
             ),
             Qusetion(),
             const SizedBox(
-              height: 30,
+              height: 40,
             ),
             Youtube(),
             const SizedBox(
-              height: 30,
+              height: 40,
             ),
             Qusetion(),
             const SizedBox(

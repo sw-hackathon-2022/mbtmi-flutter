@@ -86,12 +86,11 @@ class QuestionColum extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(5),
-      width: Get.width * 0.8,
+      width: Get.width * 0.9,
       child: GestureDetector(
           onTap: press,
           child: Container(
-            padding:
-                const EdgeInsets.only(top: 5, left: 5, right: 5, bottom: 5),
+            padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
             decoration: BoxDecoration(
               border: Border.all(width: 1.5),
               borderRadius: const BorderRadius.all(Radius.circular(5.0) // POINT
@@ -111,29 +110,50 @@ class QuestionColum extends StatelessWidget {
                     style: TextStyle(fontSize: 11),
                   ),
                 ]),
-                const SizedBox(height: 15),
+                const SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10, left: 25),
-                  child: Image.asset('assets/images/contents_btn1.jpg',
-                      width: Get.width * 0.7),
+                  padding: const EdgeInsets.only(
+                      left: 30, right: 20, top: 10, bottom: 10),
+                  child: Stack(alignment: Alignment.center, children: [
+                    Image.asset(
+                      'assets/images/contents_btn.png',
+                    ),
+                    const Text(
+                      '나 빼고 둘이 마셔도 괜찮아 ~',
+                      style: TextStyle(
+                        fontFamily: 'GmarketSans',
+                        fontSize: 11,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 30, right: 20, top: 10, bottom: 10),
+                  child: Stack(alignment: Alignment.center, children: [
+                    Image.asset(
+                      'assets/images/contents_btn.png',
+                    ),
+                    const Text(
+                      '뭐! 내가 들어가면 술 자리로 쫑이지!',
+                      style: TextStyle(
+                        fontFamily: 'GmarketSans',
+                        fontSize: 11,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ]),
                 ),
                 const SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 10, left: 25),
-                  child: Image.asset('assets/images/contents_btn2.jpg',
-                      width: Get.width * 0.7),
-                ),
-                const SizedBox(
-                  height: 15,
+                  height: 10,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         '마감 3일 5시간 전',
                         style: TextStyle(
                           fontFamily: 'GmarketSans',
