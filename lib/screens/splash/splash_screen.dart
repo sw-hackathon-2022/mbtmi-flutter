@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -8,7 +7,13 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(children: [
-      Image(image: AssetImage("assets/images/splash_background.png")),
+      Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/splash_background.png"),
+              fit: BoxFit.cover),
+        ),
+      ),
       Padding(
         padding: const EdgeInsets.only(left: 36, top: 300),
         child: RichText(
