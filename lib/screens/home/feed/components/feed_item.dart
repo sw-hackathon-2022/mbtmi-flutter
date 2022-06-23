@@ -11,8 +11,10 @@ class FeedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const DetailScreen()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DetailScreen(mbti: post.mbti)));
       },
       child: Container(
         margin: EdgeInsets.fromLTRB(24, 24, 24, 0),

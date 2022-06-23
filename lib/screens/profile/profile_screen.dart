@@ -128,8 +128,11 @@ class _ProfileScreenSate extends State<ProfileScreen> {
               const SizedBox(height: 80),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              HomeScreen(mbti: _selectedMbti)));
                   //showMbtmiDialog(context, "환영합니다!",
                   //"엠비티엠아이에 오신 것을 환영합니다!\n자신의 TMI를 맘껏 방출해보세요!");
                 },

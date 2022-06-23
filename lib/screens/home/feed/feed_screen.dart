@@ -7,7 +7,9 @@ import 'package:mbtmi/screens/home/feed/components/mbti_chip.dart';
 import 'package:dio/dio.dart';
 
 class FeedScreen extends StatefulWidget {
-  const FeedScreen({Key? key}) : super(key: key);
+  const FeedScreen({Key? key, required this.mbti}) : super(key: key);
+
+  final String mbti;
 
   @override
   State<FeedScreen> createState() => _FeedScreenState();
@@ -73,13 +75,14 @@ class _FeedScreenState extends State<FeedScreen> {
                       children: [
                         SizedBox(height: 42),
                         Image(
-                          image: AssetImage("assets/images/profile/ENFJ.png"),
+                          image: AssetImage(
+                              "assets/images/profile/${widget.mbti}.png"),
                           width: 80,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("ENFJ",
+                            Text(widget.mbti,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 24)),
                             SizedBox(width: 4),
@@ -160,6 +163,7 @@ class _FeedScreenState extends State<FeedScreen> {
                           return FeedList(
                               posts: snapshot.data, filterMbti: _filterMbti);
                         }))
+
               ],
             ),
             Padding(
@@ -173,9 +177,17 @@ class _FeedScreenState extends State<FeedScreen> {
                       image: AssetImage("assets/images/appbar_logo.png"),
                       width: 60,
                     ),
-                    Image(
-                      image: AssetImage("assets/images/add_post.png"),
-                      width: 36,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WriteScreen()));
+                      },
+                      child: Image(
+                        image: AssetImage("assets/images/add_post.png"),
+                        width: 32,
+                      ),
                     )
                   ],
                 ),

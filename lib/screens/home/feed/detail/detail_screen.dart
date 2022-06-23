@@ -5,15 +5,22 @@ import 'package:get/get.dart';
 import 'package:mbtmi/constants.dart';
 import 'package:mbtmi/model/massage_list.dart';
 import 'package:mbtmi/screens/home/feed/detail/background.dart';
+import 'package:mbtmi/screens/home/feed/detail/ques_controller.dart';
 
 import '../../../../model/message_send.dart';
 import '../../../dialog/MbtmiDialog.dart';
 import '../../../dialog/MbtmiDialog2.dart';
 import 'avartar_widget.dart';
 import 'comment/comment_avartar.dart';
+import 'heart_controller.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  DetailScreen({Key? key, required this.mbti}) : super(key: key) {
+    Get.put(HeartController());
+    Get.put(QuestController());
+  }
+
+  final String mbti;
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +64,9 @@ class DetailScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AvartarWidget(
-                      imagePath: 'assets/images/ENFJ.png',
+                      imagePath: 'assets/images/profile/$mbti.png',
                       userId: '#0000',
-                      mbti: 'ENFJ',
+                      mbti: mbti,
                       time: '22.06.22 20:00',
                       size: const Size.fromWidth(45.0)),
                   const Icon(
@@ -109,62 +116,150 @@ class DetailScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 60),
                       Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 30),
+                        padding: const EdgeInsets.only(left: 0, right: 30),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Container(
                               child: Row(
                                 children: [
-                                  GestureDetector(
-                                      child: SvgPicture.asset(
-                                          'assets/svg/detail_heart.svg',
-                                          color: Colors.red,
-                                          width: Get.width * 0.08)),
-                                  const Text(
-                                    '공감해요 : ',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'GmarketSans',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10),
-                                  ),
-                                  const Text(
-                                    '1,234',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'GmarketSans',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10),
-                                  ),
+                                  GetBuilder<HeartController>(
+                                      builder: (controller) {
+                                    if (controller.pageIdx.value == 1) {
+                                      return Row(
+                                        children: [
+                                          IconButton(
+                                            icon: SvgPicture.asset(
+                                                'assets/svg/detail_heart.svg',
+                                                width: Get.width * 0.06,
+                                                color: Colors.red),
+                                            onPressed: () async {
+                                              controller.changeColor(1);
+                                              print("1");
+                                            },
+                                          ),
+                                          const Text(
+                                            '공감해요 : ',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          const Text(
+                                            '1,235',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                        ],
+                                      );
+                                    } else {
+                                      return Row(
+                                        children: [
+                                          IconButton(
+                                            icon: SvgPicture.asset(
+                                                'assets/svg/detail_heart_off.svg',
+                                                width: Get.width * 0.06,
+                                                color: Colors.black),
+                                            onPressed: () async {
+                                              controller.changeColor(1);
+                                            },
+                                          ),
+                                          const Text(
+                                            '공감해요 : ',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          const Text(
+                                            '1,234',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                        ],
+                                      );
+                                    }
+                                  }),
                                 ],
                               ),
                             ),
-                            const SizedBox(width: 20),
+                            const SizedBox(width: 10),
                             Container(
                               child: Row(
                                 children: [
-                                  GestureDetector(
-                                      child: SvgPicture.asset(
-                                          'assets/svg/detail_question.svg',
-                                          color: kPurpleColor,
-                                          width: Get.width * 0.07)),
-                                  const Text(
-                                    '이해가 안돼요 : ',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'GmarketSans',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10),
-                                  ),
-                                  const Text(
-                                    '1,234',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'GmarketSans',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10),
-                                  ),
+                                  GetBuilder<QuestController>(
+                                      builder: (controller) {
+                                    if (controller.pageIdx.value == 1) {
+                                      return Row(
+                                        children: [
+                                          IconButton(
+                                            icon: SvgPicture.asset(
+                                                'assets/svg/detail_question.svg',
+                                                width: Get.width * 0.06,
+                                                color: kPurpleColor),
+                                            onPressed: () async {
+                                              controller.changeColor(1);
+                                              print("1");
+                                            },
+                                          ),
+                                          const Text(
+                                            '이해가 안되요 : ',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          const Text(
+                                            '999',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                        ],
+                                      );
+                                    } else {
+                                      return Row(
+                                        children: [
+                                          IconButton(
+                                            icon: SvgPicture.asset(
+                                                'assets/svg/detail_question_off.svg',
+                                                width: Get.width * 0.06,
+                                                color: Colors.black),
+                                            onPressed: () async {
+                                              controller.changeColor(1);
+                                            },
+                                          ),
+                                          const Text(
+                                            '이해가 안되요 : ',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          const Text(
+                                            '998',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'GmarketSans',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                        ],
+                                      );
+                                    }
+                                  }),
                                 ],
                               ),
                             )
