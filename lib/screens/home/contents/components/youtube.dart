@@ -21,14 +21,14 @@ class Youtube extends StatelessWidget {
             width: Get.width * 0.01,
           ),
           YoutubePhoto(
-            image: "assets/images/contents_youtube1.jpg",
+            image: "assets/images/content_youtube2.png",
             press: () {},
           ),
           SizedBox(
             width: Get.width * 0.01,
           ),
           YoutubePhoto(
-            image: "assets/images/contents_youtube1.jpg",
+            image: "assets/images/content_youtube3.png",
             press: () {},
           ),
           SizedBox(
@@ -51,10 +51,12 @@ class YoutubePhoto extends StatelessWidget {
   const YoutubePhoto({
     Key? key,
     required this.image,
+    required this.title,
     required this.press,
   }) : super(key: key);
 
   final String image;
+  final String title;
   final VoidCallback press;
 
   @override
@@ -66,7 +68,7 @@ class YoutubePhoto extends StatelessWidget {
         top: 5,
         bottom: 5,
       ),
-      width: Get.width * 0.4,
+      width: Get.width * 0.36,
       child: GestureDetector(
           onTap: press,
           child: Container(
@@ -75,42 +77,53 @@ class YoutubePhoto extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(5.0) // POINT
                   ),
             ),
-            child: Column(children: <Widget>[
-              const SizedBox(height: 5),
-              Container(
-                child: Image.asset(image),
-                width: Get.width * 0.35,
-              ),
-              const SizedBox(height: 5),
-              const Text('저녁은 치킨인가,\n피자인가, 그것이...',
-                  style: TextStyle(
-                      color: kPurpleColor,
-                      fontFamily: 'GmarketSans',
-                      fontWeight: FontWeight.w700),
-                  textAlign: TextAlign.left),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'by. 과몰입',
-                style: TextStyle(
-                  fontFamily: 'GmarketSans',
-                  fontSize: 8,
-                ),
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                '22.06.20',
-                style: TextStyle(
-                  fontFamily: 'GmarketSans',
-                  fontSize: 8,
-                ),
-              ),
-              const SizedBox(height: 5),
-            ]),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const SizedBox(height: 5),
+                  Container(
+                    child: Image.asset(image),
+                    width: Get.width * 0.35,
+                  ),
+                  const SizedBox(height: 5),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4),
+                    child: Text(title,
+                        style: TextStyle(
+                            color: kPurpleColor,
+                            fontFamily: 'GmarketSans',
+                            fontWeight: FontWeight.w700),
+                        textAlign: TextAlign.left),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4),
+                    child: const Text(
+                      'by. 과몰입',
+                      style: TextStyle(
+                        fontFamily: 'GmarketSans',
+                        fontSize: 8,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4),
+                    child: const Text(
+                      '22.06.20',
+                      style: TextStyle(
+                        fontFamily: 'GmarketSans',
+                        fontSize: 8,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                ]),
           )),
     );
   }

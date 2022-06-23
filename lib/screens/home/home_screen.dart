@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return [
       const ContentsScreen(),
       //const FeedScreen(),
-      const DetailScreen(),
+      const FeedScreen(),
       const AnalyticScreen(),
     ];
   }
