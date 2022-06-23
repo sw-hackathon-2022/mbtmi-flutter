@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mbtmi/screens/dialog/MbtmiDialog.dart';
 import 'package:mbtmi/screens/home/home_screen.dart';
 import 'package:mbtmi/screens/login/components/LoginButton.dart';
+import 'package:mbtmi/screens/profile/profile.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
