@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -42,19 +40,18 @@ class DetailScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: const [
-                /* Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: Get.height * 0.01,
-                                      horizontal: Get.width * 0.015),
-                                  child: ChatListItem(
-                                    imagePath: 'assets/images/ENFJ.png',
-                                    userId: '#0000',
-                                    mbti: 'ENFJ',
-                                    text: "나도 너무 별로야..",
-                                  ),
-                                ),*/
-                //Expanded(child: Messages()),
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: Get.height * 0.01,
+                      horizontal: Get.width * 0.015),
+                  child: ChatListItem(
+                    imagePath: 'assets/images/ENFJ.png',
+                    userId: '#0000',
+                    mbti: 'ENFJ',
+                    text: "나도 너무 별로야..",
+                  ),
+                ),
                 NewMessage(),
               ],
             ),
