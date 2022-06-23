@@ -90,16 +90,14 @@ class QuestionColum extends StatelessWidget {
       child: GestureDetector(
           onTap: press,
           child: Container(
-            padding:
-                const EdgeInsets.only(top: 5, left: 5, right: 5, bottom: 5),
+            padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
             decoration: BoxDecoration(
               border: Border.all(width: 1.5),
               borderRadius: const BorderRadius.all(Radius.circular(5.0) // POINT
                   ),
             ),
             child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
-
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 const SizedBox(height: 10),
                 Row(children: <Widget>[
@@ -131,7 +129,8 @@ class QuestionColum extends StatelessWidget {
                   ]),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 20, top: 10),
+                  padding: const EdgeInsets.only(
+                      left: 30, right: 20, top: 10, bottom: 10),
                   child: Stack(alignment: Alignment.center, children: [
                     Image.asset(
                       'assets/images/contents_btn.png',
