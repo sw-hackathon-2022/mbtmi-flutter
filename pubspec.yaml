@@ -30,7 +30,6 @@ dependencies:
   carousel_slider: ^4.1.1
   syncfusion_flutter_charts: ^20.1.61
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -40,7 +39,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-  - assets/images/
+    - assets/images/
+    - assets/svg/
+
   fonts:
     - family: GmarketSans
       fonts:
@@ -50,7 +51,3 @@ flutter:
           weight: 500
         - asset: assets/fonts/GmarketSansTTFBold.ttf
           weight: 700
-  assets:
-    - assets/svg/
-    - assets/images/
-
