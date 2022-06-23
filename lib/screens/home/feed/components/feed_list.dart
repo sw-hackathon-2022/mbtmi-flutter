@@ -16,9 +16,10 @@ class FeedList extends StatelessWidget {
       child: Column(
           children: List.generate(
               posts.length,
-              (index) => (filterMbti.isNotEmpty && isOK(posts[index].mbti)
-                  ? FeedItem(post: posts[index])
-                  : Container()))),
+              (index) =>
+                  (filterMbti.isNotEmpty && isOK(posts[index].author.mbti)
+                      ? FeedItem(post: posts[index])
+                      : Container()))),
     );
   }
 
