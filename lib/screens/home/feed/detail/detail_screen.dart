@@ -13,7 +13,9 @@ import 'avartar_widget.dart';
 import 'comment/comment_avartar.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  const DetailScreen({Key? key, required this.mbti}) : super(key: key);
+
+  final String mbti;
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +59,9 @@ class DetailScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AvartarWidget(
-                      imagePath: 'assets/images/ENFJ.png',
+                      imagePath: 'assets/images/profile/$mbti.png',
                       userId: '#0000',
-                      mbti: 'ENFJ',
+                      mbti: mbti,
                       time: '22.06.22 20:00',
                       size: const Size.fromWidth(45.0)),
                   const Icon(

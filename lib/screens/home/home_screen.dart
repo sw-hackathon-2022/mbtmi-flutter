@@ -14,10 +14,11 @@ import 'feed/detail/detail_screen.dart';
 import 'feed/feed_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key) {
+  HomeScreen({Key? key, required this.mbti}) : super(key: key) {
     // Get.put(HomeScreenController());
   }
 
+  final String mbti;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return [
       const ContentsScreen(),
       //const FeedScreen(),
-      const FeedScreen(),
+      FeedScreen(mbti: widget.mbti),
       const AnalyticScreen(),
     ];
   }

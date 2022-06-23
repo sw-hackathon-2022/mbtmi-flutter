@@ -7,7 +7,9 @@ import 'package:mbtmi/screens/home/feed/components/mbti_chip.dart';
 import 'package:mbtmi/screens/write/write_screen.dart';
 
 class FeedScreen extends StatefulWidget {
-  const FeedScreen({Key? key}) : super(key: key);
+  const FeedScreen({Key? key, required this.mbti}) : super(key: key);
+
+  final String mbti;
 
   @override
   State<FeedScreen> createState() => _FeedScreenState();
@@ -95,13 +97,14 @@ class _FeedScreenState extends State<FeedScreen> {
                       children: [
                         SizedBox(height: 42),
                         Image(
-                          image: AssetImage("assets/images/profile/ENFJ.png"),
+                          image: AssetImage(
+                              "assets/images/profile/${widget.mbti}.png"),
                           width: 80,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("ENFJ",
+                            Text(widget.mbti,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 24)),
                             SizedBox(width: 4),
@@ -170,7 +173,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 ),
                 SizedBox(height: 12),
                 SizedBox(
-                    height: 500,
+                    height: 480,
                     child: FeedList(posts: _posts, filterMbti: _filterMbti))
               ],
             ),
@@ -185,16 +188,17 @@ class _FeedScreenState extends State<FeedScreen> {
                       image: AssetImage("assets/images/appbar_logo.png"),
                       width: 60,
                     ),
-                    TextButton(
-                      child: Container(
-                          width: 28,
-                          child: Image.asset("assets/images/add_post.png")),
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => WriteScreen()));
                       },
+                      child: Image(
+                        image: AssetImage("assets/images/add_post.png"),
+                        width: 32,
+                      ),
                     )
                   ],
                 ),
