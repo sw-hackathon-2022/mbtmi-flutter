@@ -59,11 +59,11 @@ class ContentsScreen extends StatelessWidget {
             ),
             Qusetion(),
             const SizedBox(
-              height: 60,
+              height: 70,
             ),
             ImageContent(),
             const SizedBox(
-              height: 60,
+              height: 70,
             ),
             Youtube(),
             const SizedBox(

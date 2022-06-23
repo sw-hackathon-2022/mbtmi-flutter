@@ -1,52 +1,40 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mbtmi/constants.dart';
 
-class ImageContent extends StatelessWidget {
+class ImageContent extends StatefulWidget {
   const ImageContent({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<ImageContent> createState() => _ImageContentState();
+}
+
+class _ImageContentState extends State<ImageContent> {
+  final Images = [
+    'assets/images/content_02.png',
+    'assets/images/content_01.png',
+    'assets/images/content_03.png',
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: <Widget>[
-          YoutubePhoto(
-            image: "assets/images/content_01.png",
-            title: "상황별 MBTI 반응",
-            press: () {},
-          ),
-          SizedBox(
-            width: Get.width * 0.01,
-          ),
-          YoutubePhoto(
-            image: "assets/images/content_02.png",
-            title: "MBTI 빙고",
-            press: () {},
-          ),
-          SizedBox(
-            width: Get.width * 0.01,
-          ),
-          YoutubePhoto(
-            image: "assets/images/content_03.png",
-            title: "MBTI 캐릭터 컨셉",
-            press: () {},
-          ),
-          SizedBox(
-            width: Get.width * 0.01,
-          ),
-          YoutubePhoto(
-            image: "assets/images/content_01.png",
-            title: "상황별 MBTI 반응",
-            press: () {},
-          ),
-          SizedBox(
-            width: Get.width * 0.01,
-          ),
-        ],
+    return CarouselSlider.builder(
+      options: CarouselOptions(
+        height: Get.height * 0.3,
+        viewportFraction: 0.7,
+        autoPlay: false,
       ),
+      itemCount: Images.length,
+      itemBuilder: (context, index, realIndex) {
+        final urlImage = Images[index];
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 1),
+          child: Image.asset(urlImage, fit: BoxFit.cover),
+        );
+      },
     );
   }
 }

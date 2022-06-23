@@ -30,7 +30,7 @@ class Qusetion extends StatelessWidget {
       options: CarouselOptions(
         // height: Get.height * 0.4,
         viewportFraction: 0.8,
-        autoPlay: false,
+        autoPlay: true,
       ),
       itemCount: columnList.length,
       itemBuilder: (context, index, realIndex) {
