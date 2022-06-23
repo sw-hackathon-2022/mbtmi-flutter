@@ -27,14 +27,14 @@ class FeedItem extends StatelessWidget {
                       children: [
                         Image(
                           image: AssetImage(
-                              "assets/images/profile/${post.mbti}.png"),
+                              "assets/images/profile/${post.author.mbti}.png"),
                           width: 40,
                         ),
-                        Text(post.mbti,
+                        Text(post.author.mbti,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 12)),
                         SizedBox(width: 4),
-                        Text("#${post.authorId}",
+                        Text("#${post.author.username}",
                             style: TextStyle(color: Colors.grey, fontSize: 10))
                       ],
                     ),
@@ -73,7 +73,8 @@ class FeedItem extends StatelessWidget {
                 Image(
                     image: AssetImage("assets/images/post_like.png"),
                     width: 26),
-                Text(post.like.toString(), style: TextStyle(fontSize: 10))
+                Text(post.reactions.likeCount.toString(),
+                    style: TextStyle(fontSize: 10))
               ],
             ),
             SizedBox(width: 16),
@@ -84,7 +85,8 @@ class FeedItem extends StatelessWidget {
                   image: AssetImage("assets/images/post_hate.png"),
                   width: 24,
                 ),
-                Text(post.hate.toString(), style: TextStyle(fontSize: 10))
+                Text(post.reactions.unlikeCount.toString(),
+                    style: TextStyle(fontSize: 10))
               ],
             )
           ],

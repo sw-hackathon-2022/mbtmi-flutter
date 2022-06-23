@@ -4,7 +4,7 @@ import 'package:mbtmi/model/feed_post.dart';
 import 'package:mbtmi/screens/home/feed/components/feed_item.dart';
 import 'package:mbtmi/screens/home/feed/components/feed_list.dart';
 import 'package:mbtmi/screens/home/feed/components/mbti_chip.dart';
-import 'package:mbtmi/screens/write/write_screen.dart';
+import 'package:dio/dio.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class FeedScreen extends StatefulWidget {
 }
 
 class _FeedScreenState extends State<FeedScreen> {
-  late List<FeedPostModel> _posts;
+  late Future<List<FeedPostModel>> _posts;
   List<String> _filterMbti = ["E", "I", "N", "S", "F", "T", "J", "P"];
 
   void setFilter(String char) {
@@ -28,51 +28,29 @@ class _FeedScreenState extends State<FeedScreen> {
       });
   }
 
+  var dio = Dio();
+
+  Future<List<FeedPostModel>> getPostsApi() async {
+    var dio = Dio();
+    final token =
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2MjY2MDA4LCJpYXQiOjE2NTYwMDY4MDgsImp0aSI6IjNjZTgwMDY0NzRmMTRiOTk4ZTE3NTA5Njg3ZjI0NmRmIiwidXNlcl9pZCI6NX0.ISxEPnUh012qduuQgTXdWRewNRWgnVSqUSxR7mbYs9g";
+    dio.options.headers["Authorization"] = "Bearer ${token}";
+    try {
+      final response = await dio.get('http://49.50.166.103:80/posts/');
+      final posts = (response.data['data'] as List)
+          .map((e) => FeedPostModel.fromJson(e))
+          .toList();
+      return posts;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   @override
   void initState() {
     super.initState();
-    _posts = [
-      FeedPostModel(
-          id: 0,
-          authorId: 0000,
-          mbti: "ENFJ",
-          title: "이거 다른 의견 궁금하다! 집합!",
-          content:
-              "다들 컨텐츠 탭에 깻잎논쟁 투표 했어? 다들 컨텐츠 탭에 깻잎논쟁 투표 했어? 다들 컨텐츠 탭에 깻잎논쟁 투표 했어?",
-          like: 1234,
-          hate: 1234,
-          createdAt: "5분 전"),
-      FeedPostModel(
-          id: 0,
-          authorId: 0000,
-          mbti: "ESTJ",
-          title: "이거 다른 의견 궁금하다! 집합!",
-          content:
-              "다들 컨텐츠 탭에 깻잎논쟁 투표 했어? 다들 컨텐츠 탭에 깻잎논쟁 투표 했어? 다들 컨텐츠 탭에 깻잎논쟁 투표 했어?",
-          like: 1234,
-          hate: 1234,
-          createdAt: "5분 전"),
-      FeedPostModel(
-          id: 0,
-          authorId: 0000,
-          mbti: "ENTP",
-          title: "이거 다른 의견 궁금하다! 집합!",
-          content:
-              "다들 컨텐츠 탭에 깻잎논쟁 투표 했어? 다들 컨텐츠 탭에 깻잎논쟁 투표 했어? 다들 컨텐츠 탭에 깻잎논쟁 투표 했어?",
-          like: 1234,
-          hate: 1234,
-          createdAt: "5분 전"),
-      FeedPostModel(
-          id: 0,
-          authorId: 0000,
-          mbti: "INFP",
-          title: "이거 다른 의견 궁금하다! 집합!",
-          content:
-              "다들 컨텐츠 탭에 깻잎논쟁 투표 했어? 다들 컨텐츠 탭에 깻잎논쟁 투표 했어? 다들 컨텐츠 탭에 깻잎논쟁 투표 했어?",
-          like: 1234,
-          hate: 1234,
-          createdAt: "5분 전")
-    ];
+
+    _posts = getPostsApi();
   }
 
   @override
@@ -171,7 +149,17 @@ class _FeedScreenState extends State<FeedScreen> {
                 SizedBox(height: 12),
                 SizedBox(
                     height: 500,
-                    child: FeedList(posts: _posts, filterMbti: _filterMbti))
+                    child: FutureBuilder(
+                        future: _posts,
+                        builder:
+                            (BuildContext context, AsyncSnapshot snapshot) {
+                          if (snapshot.connectionState !=
+                              ConnectionState.done) {
+                            CircularProgressIndicator();
+                          }
+                          return FeedList(
+                              posts: snapshot.data, filterMbti: _filterMbti);
+                        }))
               ],
             ),
             Padding(
@@ -185,16 +173,9 @@ class _FeedScreenState extends State<FeedScreen> {
                       image: AssetImage("assets/images/appbar_logo.png"),
                       width: 60,
                     ),
-                    TextButton(
-                      child: Container(
-                          width: 28,
-                          child: Image.asset("assets/images/add_post.png")),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => WriteScreen()));
-                      },
+                    Image(
+                      image: AssetImage("assets/images/add_post.png"),
+                      width: 36,
                     )
                   ],
                 ),
