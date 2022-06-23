@@ -44,29 +44,32 @@ class _NewMessageState extends State<NewMessage> {
               padding: const EdgeInsets.only(
                 left: 10,
               ),
-              child: TextField(
-                controller: _controller,
-                decoration: const InputDecoration(
-                  labelText: '댓글을 입력하세요',
-                  labelStyle: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'GmarketSans',
-                      fontWeight: FontWeight.w300,
-                      fontSize: 13),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    borderSide: BorderSide(width: 1, color: kYellowColor),
+              child: SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: _controller,
+                  decoration: const InputDecoration(
+                    labelText: '댓글을 입력하세요.',
+                    labelStyle: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'GmarketSans',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 13),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(width: 1, color: kYellowColor),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(width: 1, color: kYellowColor),
+                    ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    borderSide: BorderSide(width: 1, color: kYellowColor),
-                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _userEnterMessage = value;
+                    });
+                  },
                 ),
-                onChanged: (value) {
-                  setState(() {
-                    _userEnterMessage = value;
-                  });
-                },
               ),
             ),
           ),

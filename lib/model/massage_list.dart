@@ -216,16 +216,12 @@ class ChatListItem extends StatelessWidget {
             imagePath: imagePath,
             userId: userId,
             mbti: mbti,
-            size: const Size.fromWidth(40.0)),
+            size: const Size.fromWidth(30.0)),
         const SizedBox(
-          width: 3,
+          width: 5,
         ),
-        Text(
-          text,
-          style: const TextStyle(
-            fontWeight: FontWeight.normal,
-          ),
-        ),
+        Text(text,
+            style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 10)),
       ],
     );
   }
