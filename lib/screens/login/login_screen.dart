@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mbtmi/screens/dialog/MbtmiDialog.dart';
 import 'package:mbtmi/screens/home/home_screen.dart';
 import 'package:mbtmi/screens/login/components/LoginButton.dart';
 
@@ -18,6 +19,8 @@ class LoginScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => HomeScreen()));
+            showMbtmiDialog(
+                context, "환영합니다!", "엠비티엠아이에 오신 것을 환영합니다!\n나의 TMI를 맘껏 방출해보세요~");
           },
           child: Container(
               width: 250, child: Image.asset("assets/images/login_kakao.png")),

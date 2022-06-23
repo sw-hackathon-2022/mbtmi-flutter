@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mbtmi/constants.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:mbtmi/screens/dialog/MbtmiDialog.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'analytic/analytic_screen.dart';
