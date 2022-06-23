@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mbtmi/screens/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:mbtmi/screens/write/write_screen.dart';
 
 const double _kItemExtent = 32.0;
 const List<String> _mbtis = [
@@ -127,7 +128,7 @@ class _ProfileScreenSate extends State<ProfileScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => WriteScreen()));
                 },
                 child: Container(
                     width: 260,
