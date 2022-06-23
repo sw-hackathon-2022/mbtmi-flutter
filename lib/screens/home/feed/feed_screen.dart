@@ -4,6 +4,7 @@ import 'package:mbtmi/model/feed_post.dart';
 import 'package:mbtmi/screens/home/feed/components/feed_item.dart';
 import 'package:mbtmi/screens/home/feed/components/feed_list.dart';
 import 'package:mbtmi/screens/home/feed/components/mbti_chip.dart';
+import 'package:mbtmi/screens/write/write_screen.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);
@@ -184,9 +185,16 @@ class _FeedScreenState extends State<FeedScreen> {
                       image: AssetImage("assets/images/appbar_logo.png"),
                       width: 60,
                     ),
-                    Image(
-                      image: AssetImage("assets/images/add_post.png"),
-                      width: 36,
+                    TextButton(
+                      child: Container(
+                          width: 28,
+                          child: Image.asset("assets/images/add_post.png")),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WriteScreen()));
+                      },
                     )
                   ],
                 ),
