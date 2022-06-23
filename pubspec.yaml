@@ -28,6 +28,8 @@ dependencies:
   flutter_svg: ^1.1.0
   get: ^4.6.5
   carousel_slider: ^4.1.1
+  syncfusion_flutter_charts: ^20.1.61
+
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +39,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+  - assets/images/
   fonts:
     - family: GmarketSans
       fonts:
@@ -49,3 +53,4 @@ flutter:
   assets:
     - assets/svg/
     - assets/images/
+
