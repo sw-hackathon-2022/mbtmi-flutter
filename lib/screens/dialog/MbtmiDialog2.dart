@@ -40,7 +40,7 @@ Future<void> showMbtmiDialog2(BuildContext context, String title) async {
               child: GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-                  showMbtmiDialog(context, "감사합니다.", "신고가 정상적으로 접수되었습니다.");
+                  showMbtmiDialog(context, "감사합니다", "신고가 정상적으로 접수되었습니다.");
                 },
                 // onTap: () =>Navigator.pop(context),
                 //     showMbtmiDialog(context, "감사합니다.", "신고가 정상적으로 접수되었습니다."),

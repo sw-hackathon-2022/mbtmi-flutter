@@ -14,6 +14,7 @@ class Youtube extends StatelessWidget {
       child: Row(
         children: <Widget>[
           YoutubePhoto(
+            title: "MBTI 성격 유형",
             image: "assets/images/contents_youtube1.jpg",
             press: () {},
           ),
@@ -21,6 +22,7 @@ class Youtube extends StatelessWidget {
             width: Get.width * 0.01,
           ),
           YoutubePhoto(
+            title: "MBTI 네가지 종족",
             image: "assets/images/content_youtube2.png",
             press: () {},
           ),
@@ -28,6 +30,7 @@ class Youtube extends StatelessWidget {
             width: Get.width * 0.01,
           ),
           YoutubePhoto(
+            title: "인싸 아싸 MBTI",
             image: "assets/images/content_youtube3.png",
             press: () {},
           ),
@@ -35,6 +38,7 @@ class Youtube extends StatelessWidget {
             width: Get.width * 0.01,
           ),
           YoutubePhoto(
+            title: "MBTI 성격 유형",
             image: "assets/images/contents_youtube1.jpg",
             press: () {},
           ),

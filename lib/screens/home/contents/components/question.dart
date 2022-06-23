@@ -45,10 +45,13 @@ class Qusetion extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: <Widget>[
-          QuestionColum(
-            question:
-                "나와 애인, 애인의 이성친구와 술을 마시고 있다.\n내가 먼저 취해 방에 들어가려는데,\n이때 나의 행동은?",
-            press: () {},
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: QuestionColum(
+              question:
+                  "나와 애인, 애인의 이성친구와 술을 마시고 있다.\n내가 먼저 취해 방에 들어가려는데,\n이때 나의 행동은?",
+              press: () {},
+            ),
           ),
           SizedBox(
             width: Get.width * 0.01,
@@ -90,7 +93,8 @@ class QuestionColum extends StatelessWidget {
       child: GestureDetector(
           onTap: press,
           child: Container(
-            padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
+            padding:
+                const EdgeInsets.only(top: 5, left: 5, right: 5, bottom: 0),
             decoration: BoxDecoration(
               border: Border.all(width: 1.5),
               borderRadius: const BorderRadius.all(Radius.circular(5.0) // POINT
@@ -102,7 +106,7 @@ class QuestionColum extends StatelessWidget {
                 const SizedBox(height: 10),
                 Row(children: <Widget>[
                   const SizedBox(width: 6),
-                  Image.asset('assets/images/contents_question.jpg',
+                  Image.asset('assets/images/contents_question.png',
                       width: Get.width * 0.07),
                   const SizedBox(width: 5),
                   Text(
