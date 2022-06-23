@@ -5,6 +5,7 @@ import 'package:mbtmi/screens/home/feed/components/feed_item.dart';
 import 'package:mbtmi/screens/home/feed/components/feed_list.dart';
 import 'package:mbtmi/screens/home/feed/components/mbti_chip.dart';
 import 'package:dio/dio.dart';
+import 'package:mbtmi/screens/write/write_screen.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({Key? key, required this.mbti}) : super(key: key);
@@ -163,7 +164,6 @@ class _FeedScreenState extends State<FeedScreen> {
                           return FeedList(
                               posts: snapshot.data, filterMbti: _filterMbti);
                         }))
-
               ],
             ),
             Padding(

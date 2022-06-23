@@ -14,7 +14,7 @@ class FeedItem extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => DetailScreen(mbti: post.mbti)));
+                builder: (context) => DetailScreen(mbti: post.author.mbti)));
       },
       child: Container(
         margin: EdgeInsets.fromLTRB(24, 24, 24, 0),
