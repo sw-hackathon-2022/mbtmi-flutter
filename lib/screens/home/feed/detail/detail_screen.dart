@@ -211,7 +211,7 @@ class DetailScreen extends StatelessWidget {
                                             },
                                           ),
                                           const Text(
-                                            '공감해요 : ',
+                                            '이해가 안되요 : ',
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontFamily: 'GmarketSans',
@@ -241,7 +241,7 @@ class DetailScreen extends StatelessWidget {
                                             },
                                           ),
                                           const Text(
-                                            '공감해요 : ',
+                                            '이해가 안되요 : ',
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontFamily: 'GmarketSans',
