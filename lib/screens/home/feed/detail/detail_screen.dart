@@ -5,15 +5,20 @@ import 'package:get/get.dart';
 import 'package:mbtmi/constants.dart';
 import 'package:mbtmi/model/massage_list.dart';
 import 'package:mbtmi/screens/home/feed/detail/background.dart';
+import 'package:mbtmi/screens/home/feed/detail/ques_controller.dart';
 
 import '../../../../model/message_send.dart';
 import '../../../dialog/MbtmiDialog.dart';
 import '../../../dialog/MbtmiDialog2.dart';
 import 'avartar_widget.dart';
 import 'comment/comment_avartar.dart';
+import 'heart_controller.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  DetailScreen({Key? key}) : super(key: key) {
+    Get.put(HeartController());
+    Get.put(QuestController());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,18 +114,38 @@ class DetailScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 60),
                       Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 30),
+                        padding: const EdgeInsets.only(left: 0, right: 30),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Container(
                               child: Row(
                                 children: [
-                                  GestureDetector(
-                                      child: SvgPicture.asset(
-                                          'assets/svg/detail_heart.svg',
-                                          color: Colors.red,
-                                          width: Get.width * 0.08)),
+                                  GetBuilder<HeartController>(
+                                      builder: (controller) {
+                                    if (controller.pageIdx.value == 1) {
+                                      return IconButton(
+                                        icon: SvgPicture.asset(
+                                            'assets/svg/detail_heart.svg',
+                                            width: Get.width * 0.06,
+                                            color: Colors.red),
+                                        onPressed: () async {
+                                          controller.changeColor(1);
+                                          print("1");
+                                        },
+                                      );
+                                    } else {
+                                      return IconButton(
+                                        icon: SvgPicture.asset(
+                                            'assets/svg/detail_heart_off.svg',
+                                            width: Get.width * 0.06,
+                                            color: Colors.black),
+                                        onPressed: () async {
+                                          controller.changeColor(1);
+                                        },
+                                      );
+                                    }
+                                  }),
                                   const Text(
                                     '공감해요 : ',
                                     style: TextStyle(
@@ -144,11 +169,31 @@ class DetailScreen extends StatelessWidget {
                             Container(
                               child: Row(
                                 children: [
-                                  GestureDetector(
-                                      child: SvgPicture.asset(
-                                          'assets/svg/detail_question.svg',
-                                          color: kPurpleColor,
-                                          width: Get.width * 0.07)),
+                                  GetBuilder<QuestController>(
+                                      builder: (controller) {
+                                    if (controller.pageIdx.value == 1) {
+                                      return IconButton(
+                                        icon: SvgPicture.asset(
+                                            'assets/svg/detail_question.svg',
+                                            width: Get.width * 0.06,
+                                            color: kPurpleColor),
+                                        onPressed: () async {
+                                          controller.changeColor(1);
+                                          print("1");
+                                        },
+                                      );
+                                    } else {
+                                      return IconButton(
+                                        icon: SvgPicture.asset(
+                                            'assets/svg/detail_question_off.svg',
+                                            width: Get.width * 0.06,
+                                            color: Colors.black),
+                                        onPressed: () async {
+                                          controller.changeColor(1);
+                                        },
+                                      );
+                                    }
+                                  }),
                                   const Text(
                                     '이해가 안돼요 : ',
                                     style: TextStyle(
