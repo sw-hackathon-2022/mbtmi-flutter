@@ -39,6 +39,7 @@ class _AnalyticScreenState extends State<AnalyticScreen> {
           image: AssetImage("assets/images/appbar_logo.png"),
           width: 60,
         ),
+        centerTitle: false,
         backgroundColor: kGreenColor,
         elevation: 0,
       ),
