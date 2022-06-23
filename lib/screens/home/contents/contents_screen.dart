@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mbtmi/constants.dart';
 import 'package:mbtmi/screens/home/contents/components/background.dart';
+import 'package:mbtmi/screens/home/contents/components/image.dart';
 
 import 'components/question.dart';
 import 'components/youtube.dart';
@@ -58,13 +59,13 @@ class ContentsScreen extends StatelessWidget {
             ),
             Qusetion(),
             const SizedBox(
-              height: 40,
+              height: 60,
+            ),
+            ImageContent(),
+            const SizedBox(
+              height: 60,
             ),
             Youtube(),
-            const SizedBox(
-              height: 40,
-            ),
-            Qusetion(),
             const SizedBox(
               height: 40,
             ),
