@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mbtmi/screens/home/home_screen.dart';
+import 'package:mbtmi/screens/login/login_screen.dart';
 import 'package:mbtmi/screens/splash/splash_screen.dart';
 
 void main() {
@@ -47,6 +47,6 @@ class Init {
     // 초기 로딩 작성
     // . . .
 
-    return HomeScreen(); // 초기 로딩 완료 시 띄울 앱 첫 화면
+    return LoginScreen(); // 초기 로딩 완료 시 띄울 앱 첫 화면
   }
 }
