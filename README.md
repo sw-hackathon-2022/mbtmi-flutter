@@ -54,7 +54,9 @@
 ### MBTI 컨텐츠 모음
 
 <p float="left">
-![서비스 기능 소개3](https://user-images.githubusercontent.com/62577565/181167332-8a317697-bf16-4802-81a0-e1d9a1f96bcf.jpg)
+
+![서비스 기능 소개3](https://user-images.githubusercontent.com/62577565/181167889-71cc4bbb-5966-4a7a-9238-248c22b56bb1.jpg)
+
 </p>
 
 <br>
