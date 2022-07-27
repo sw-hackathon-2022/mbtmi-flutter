@@ -43,20 +43,11 @@
 
 <br>
 
-### 이벤트 등록
-
-<p float="left">
-<img width="645" alt="서비스 기능소개2" src="https://user-images.githubusercontent.com/62577565/181167500-2a9010df-4bb8-47ed-a8ce-2508a3cb7d38.png">
-</p>
-
-<br>
-
 ### MBTI 컨텐츠 모음
 
 <p float="left">
 
-![서비스 기능 소개3](https://user-images.githubusercontent.com/62577565/181167889-71cc4bbb-5966-4a7a-9238-248c22b56bb1.jpg)
-
+  <img width="645" alt="서비스 기능소개2" src="https://user-images.githubusercontent.com/62577565/181167889-71cc4bbb-5966-4a7a-9238-248c22b56bb1.jpg">
 </p>
 
 <br>
