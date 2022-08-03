@@ -1,7 +1,7 @@
 
 ![Untitled](https://user-images.githubusercontent.com/62577565/181166938-42d285f2-f0b4-4097-8703-624ee38af1fe.jpg)
 
-![Untitled](https://user-images.githubusercontent.com/62577565/182513767-687017e3-5faa-4193-92b7-3cb46f289e76.jpg)
+
 
 ![Untitled](https://user-images.githubusercontent.com/62577565/182513699-990d5436-9ba2-4edb-b99c-4077abdc4def.jpg)
 
