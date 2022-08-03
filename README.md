@@ -1,12 +1,6 @@
 
 ![Untitled](https://user-images.githubusercontent.com/62577565/181166938-42d285f2-f0b4-4097-8703-624ee38af1fe.jpg)
 
-
-
-![Untitled](https://user-images.githubusercontent.com/62577565/182513699-990d5436-9ba2-4edb-b99c-4077abdc4def.jpg)
-
-
-
 # MBTMI
 
 2022 SW중심대학 공동 해커톤 우수상
@@ -61,5 +55,3 @@
 # 데모
 
 > https://m.youtube.com/watch?v=91koWBCt2TE
-
----
